@@ -1,1 +1,142 @@
-/* code-here */
+/* --- GLOBAL STYLES --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000; /* Dasar hitam untuk melihat efek blur header */
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth; /* Untuk transisi halus waktu klik link navigasi */
+}
+
+/* --- 1. MAIN HEADER --- */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* Layout Header */
+  width: 1440px; 
+  height: 84px;
+  max-width: 100%; 
+  margin: 0 auto;
+  
+  padding-left: 140px;
+  padding-right: 140px;
+  
+  /* Background Color, Blur Spek. */
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  
+  /* Efek Garis Border Bawah Tipis */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* TEMPEL KE ATAS FIXED */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* --- 2. LOGO --- */
+.logo {
+  display: flex;
+  align-items: center;
+  width: 160px;
+  height: 36px;
+  gap: 8px;
+}
+
+.logo a {
+  display: block;
+  width: 65px;
+  height: 36px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+/* --- 3. NAVBAR & NAV-LINKS --- */
+.navbar {
+  width: 353px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  min-width: 72px;
+  height: 36px;
+  padding: 8px 16px;
+  
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  
+  /* Mencegah Teks "Our Work" Pindah Ke Bawah */
+  white-space: nowrap; 
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #a1a1a1;
+}
+
+/* --- 4. BTN CONTAINER & CONTACT US --- */
+.btn-container {
+  width: 160px; /* Disesuaikan agar tombol kapsul punya ruang */
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-contact {
+  /* Tampilan Kapsul Ungu Sesuai Gambar */
+  background-color: #2d1b94;
+  color: #ffffff;
+  padding: 10px 24px;      /* Ukuran proporsional dalam header */
+  border-radius: 9999px;   /* Full Rounded / Kapsul */
+  border: none;
+  
+  /* Tipografi Button */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.03em; /* Letter spacing -3% */
+  
+  /* Layout Button */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+  background-color: #3b25c0; /* Sedikit lebih terang saat hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(45, 27, 148, 0.4);
+}
