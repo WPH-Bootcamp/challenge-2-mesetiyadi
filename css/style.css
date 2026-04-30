@@ -1,142 +1,702 @@
-/* --- GLOBAL STYLES --- */
+/* --- CSS RESET --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-color: #000; /* Dasar hitam untuk melihat efek blur header */
-  font-family: 'Inter', sans-serif;
+/* --- FONT DECLARATION --- */
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/font/Inter_24pt-Black.ttf') format('truetype');
 }
 
+/* --- GLOBAL STYLES --- */
 html {
   scroll-behavior: smooth; /* Untuk transisi halus waktu klik link navigasi */
 }
 
-/* --- 1. MAIN HEADER --- */
-.main-header {
+body {
+  font-family: 'Inter';
+  background-color: black;
+  color: rgba(255, 255, 255, 0.8);
+  overflow-x: hidden; /* Mencegah horizontal scroll */
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+/* --- LAYOUT UTAMA (Header, Hero, etc) --- */
+/* 1. Header */
+header {
   display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   justify-content: space-between;
   align-items: center;
-  
-  /* Layout Header */
-  width: 1440px; 
-  height: 84px;
-  max-width: 100%; 
-  margin: 0 auto;
-  
-  padding-left: 140px;
-  padding-right: 140px;
-  
-  /* Background Color, Blur Spek. */
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-  
-  /* Efek Garis Border Bawah Tipis */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  
-  /* TEMPEL KE ATAS FIXED */
-  position: fixed;
+  padding: 24px 16px;
+}
+
+.logo {
+  position: relative;
+  z-index: 40;
+  font-size: 24px;
+}
+
+.bg-header {
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  background-color: black;
 }
 
-/* --- 2. LOGO --- */
-.logo {
+.menu {
+  width: 100%;
+  padding: 0 16px 20px;
+  background-color: black;
   display: flex;
-  align-items: center;
-  width: 160px;
-  height: 36px;
-  gap: 8px;
-}
-
-.logo a {
-  display: block;
-  width: 65px;
-  height: 36px;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 36px;
-}
-
-/* --- 3. NAVBAR & NAV-LINKS --- */
-.navbar {
-  width: 353px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  position: absolute;
+  top: 75px;
+  left: 0;
+  z-index: 10;
+  transform: translateY(-200%);
+  transition: 0.3s;
 }
 
 .nav-links {
   display: flex;
-  list-style: none;
-  gap: 12px;
-  align-items: center;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.nav-links li a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  min-width: 72px;
-  height: 36px;
-  padding: 8px 16px;
-  
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 400;
-  
-  /* Mencegah Teks "Our Work" Pindah Ke Bawah */
-  white-space: nowrap; 
-  transition: color 0.3s ease;
+.nav-links a {
+  color: #fdfdfd;
+  font-weight: 200;
+  font-size: 16px;
 }
 
 .nav-links li a:hover {
   color: #a1a1a1;
 }
 
-/* --- 4. BTN CONTAINER & CONTACT US --- */
 .btn-container {
-  width: 160px; /* Disesuaikan agar tombol kapsul punya ruang */
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  background-color: black;
+  padding: 10px 16px;
+  width: 100%;
+  z-index: 10;
+  top: 220px;
+  left: 0;
+  transform: translateY(-500%);
 }
 
-.btn-contact {
-  /* Tampilan Kapsul Ungu Sesuai Gambar */
-  background-color: #2d1b94;
-  color: #ffffff;
-  padding: 10px 24px;      /* Ukuran proporsional dalam header */
-  border-radius: 9999px;   /* Full Rounded / Kapsul */
+.menu.open, 
+.btn-container.open {
+  transform: translateY(0); /* Kondisi Aktif: Muncul ke layar */
+}
+
+.btn {
+  position: relative;
   border: none;
-  
-  /* Tipografi Button */
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: -0.03em; /* Letter spacing -3% */
-  
-  /* Layout Button */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
+  width: 100%;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px;
+  background-color: #421abc;
+  color: #ffffff;
+  border-radius: 9999px;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-.btn-contact:hover {
+.btn:hover {
   background-color: #3b25c0; /* Sedikit lebih terang saat hover */
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(45, 27, 148, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(66, 26, 188, 0.4);
+}
+
+/* --- HAMBURGER BUTTON --- */
+.hamburger-button {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  z-index: 40;
+  gap: 4px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.hamburger-button span {
+  height: 3px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: 0.3s;
+}
+
+.hamburger-button.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-button.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* 2. hero section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px 0;
+  background: linear-gradient(to top, #210a5e4d, transparent);
+}
+
+.hero .text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero .text h2 {
+  font-weight: 700;
+  color: #fdfdfd;
+  font-size: 50px;
+}
+
+.hero .text h2 span {
+  font-style: italic;
+}
+
+.hero .text p {
+  color: #717680;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.hero .pict {
+  margin-top: -40px;
+  margin: 0 auto;
+}
+
+/* 3. Who we are section */
+.who-we-are {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 20px;
+}
+
+.who-we-are h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fdfdfd;
+}
+
+.who-we-are p {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #717680;
+}
+
+.who-we-are p span {
+  color: #fdfdfd;
+}
+
+/* 4. What we do section */
+.what-we-do {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 24px;
+  text-align: center;
+}
+
+.what-we-do .text h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fdfdfd;
+}
+
+.what-we-do .text p {
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+  color: #717680;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #181d27;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card img {
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 34px;
+  color: #fdfdfd;
+}
+
+.card p {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 30px;
+  margin-bottom: 16px;
+  color: #717680;
+}
+
+/* 5. Our work section */
+.our-work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 24px;
+  text-align: center;
+}
+
+.our-work .text h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fdfdfd;
+}
+
+.our-work .text p {
+  font-weight: 300;
+  font-size: 14px;
+  color: #717680;
+}
+
+.portfolio-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 6. Meet the Team Section */
+.meet-the-team {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 24px;
+  text-align: center;
+}
+
+.meet-the-team .text h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fdfdfd;
+}
+
+.meet-the-team .text p {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 30px;
+  margin-bottom: 16px;
+  color: #717680;
+}
+
+.members {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  gap: 20px;
+}
+
+/* 7. Let's collaborate section */
+.let-us-colaborate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 24px;
+  text-align: center;
+}
+
+.let-us-colaborate .text h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fdfdfd;
+}
+
+.let-us-colaborate .text p {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 30px;
+  color: #717680;
+}
+
+/* --- FORM SECTION --- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form div label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #fdfdfd;
+  text-align: left;
+}
+
+.form div input, .form div textarea {
+  background: transparent;
+  border: 1px solid #252b37;
+  border-radius: 12px;
+  padding: 12px;
+  color: #fdfdfd;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.form div textarea {
+  resize: vertical;
+  min-height: 134px;
+}
+
+input::placeholder,textarea::placeholder {
+  color: #717680;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+/* --- FOOTER --- */
+footer {
+  padding: 24px 20px;
+  border-top: 1px solid #252b37;
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 30px;
+  margin-bottom: 16px;
+  color: #717680;
+}
+
+footer a {
+  color: #f59e0b;
+  cursor: pointer;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* --- MEDIA QUERY --- */
+@media (min-width: 768px) {
+  /* 1. Header */
+  header {
+    padding: 24px 70px;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+  }
+
+  .hamburger-button {
+    display: none;
+  }
+
+  .bg-header {
+    display: none;
+  }
+
+  .menu {
+    width: auto;
+    align-items: center;
+    padding: 0;
+    position: static;
+    transition: none;
+    transform: translateY(0);
+  }
+
+  .menu .nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .btn-container {
+    padding: 0;
+    max-width: 160px;
+    transform: translateY(0);
+    position: static;
+    transition: none;
+  }
+
+  /* 2. Hero section */
+  .hero {
+    position: relative;
+    flex-direction: row;
+    padding: 40px 70px 70px;
+  }
+
+  .hero .text {
+    max-width: 400px;
+  }
+
+  .hero .btn {
+    max-width: 300px;
+  }
+
+  .hero .pict {
+    position: relative;
+    margin-top: 0;
+    max-width: 330px;
+    top: 17px;
+    right: 50px;
+  }
+
+  /* 3. Who we are section */
+  .who-we-are {
+    padding: 40px 70px;
+  }
+
+  /* 4. What we do section */
+  .what-we-do {
+    padding: 40px 70px;
+  }
+
+  /* 5. Our work section */
+  .our-work {
+    padding: 40px 70px;
+  }
+
+  /* 6. Meet the Team Section */
+  .meet-the-team {
+    padding: 40px 70px;
+  }
+
+  .members {
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 100px;
+  }
+
+  /* 7. Let’s Collaborate Section */
+  .let-us-colaborate {
+    padding: 40px 70px;
+  }
+
+  .form {
+    width: 100%;
+    max-width: 592px;
+    margin: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* 2. Hero section */
+  .hero {
+    padding: 100px 70px;
+  }
+
+  .hero .text {
+    max-width: 500px;
+  }
+
+  .hero .text .btn {
+    margin-top: 20px;
+  }
+
+  .hero .pict {
+    max-width: 360px;
+    top: 0px;
+    right: 50px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+    margin: auto;
+  }
+
+  /* 1. Header */
+  header {
+    padding: 24px 140px;
+  }
+
+  .hamburger-button {
+    display: none;
+  }
+
+  /* 2. Hero */
+  .hero {
+    padding: 234px 140px 170px;
+  }
+
+  .hero .text {
+    max-width: 650px;
+  }
+
+  .hero .text h2 {
+    font-size: 56px;
+  }
+
+  .hero .text p {
+    font-size: 20px;
+    line-height: 34px;
+  }
+
+  .hero .text .btn {
+    margin-top: 48px;
+  }
+
+  .hero .pict {
+    max-width: 600px;
+    top: -40px;
+    right: 140px;
+  }
+
+  /* 3. Who we are section */
+  .who-we-are {
+    gap: 32px;
+    padding: 40px 140px;
+  }
+
+  .who-we-are h2 {
+    font-size: 40px;
+  }
+
+  .who-we-are p {
+    font-size: 32px;
+    line-height: 56px;
+  }
+
+  /* 4. What we do section */
+  .what-we-do {
+    padding: 40px 140px;
+    gap: 64px;
+  }
+
+  .what-we-do .text h2 {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+
+  .what-we-do .text p {
+    font-size: 20px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 5. Our work section */
+  .our-work {
+    padding: 40px 140px;
+    gap: 64px;
+  }
+
+  .our-work .text h2 {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+
+  .our-work .text p {
+    font-size: 20px;
+  }
+
+  .portfolio-card {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  /* 6. Meet the Team Section */
+  .meet-the-team {
+    padding: 40px 140px;
+    gap: 64px;
+  }
+
+  .meet-the-team .text h2 {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+
+  .meet-the-team .text p {
+    font-size: 20px;
+  }
+
+  .members {
+    grid-template-columns: repeat(4, auto);
+    gap: 56px;
+  }
+
+  /* 7. Let’s Collaborate Section */
+  .let-us-colaborate {
+    padding: 40px 140px;
+    gap: 64px;
+  }
+
+  .let-us-colaborate .text h2 {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+
+  .let-us-colaborate .text p {
+    font-size: 20px;
+  }
 }

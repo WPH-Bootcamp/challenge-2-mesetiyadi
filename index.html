@@ -7,27 +7,204 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Challenge - 2</title>
+    <!-- Font Loading First -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- 2. Panggil Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+
     <!-- Add your CSS here -->
     <link rel="stylesheet" href="./css/style.css"/>
+
   </head>
 
   <body>
-   <!-- code here -->
-   <!-- HEADER -->
-  <header class="main-header">
-  <h1 class="logo"><a href="#home">Tech.</a></h1>
+    <!-- code here -->
+    <div class="container">
+      
+      <!-- 1. HEADER -->
+      <header>
+        <div class="bg-header"></div>
+        <h1 class="logo"><a href="#home">Tech.</a></h1>
   
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#service">Service</a></li>
-      <li><a href="#work">Our Work</a></li>
-      <li><a href="#team">Team</a></li>
-    </ul>
-  </nav>
-  <div class="btn-container">
-    <a href="#contact-us" class="btn-contact">Contact Us</a>
-  </div>
-  </header>
+        <nav class="menu">
+         <ul class="nav-links">
+          <li class="nav-menu"><a href="#about">About</a></li>
+          <li class="nav-menu"><a href="#service">Service</a></li>
+          <li class="nav-menu"><a href="#work">Our Work</a></li>
+          <li class="nav-menu"><a href="#team">Team</a></li>
+         </ul>
+        </nav>
+
+        <nav class="menu">  
+        <div class="btn-container">
+         <a href="#contact-us">
+          <button class="btn">Contact Us</button>
+         </a>
+        </div>
+        </nav>
+
+        <div class="hamburger-button">
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+      </header>
+  
+      <!-- 2. HERO SECTION -->
+      <section class="hero" id="home">
+        <div class="text">
+          <h2>Build with the <span>Future.</span></h2>
+          <p>From building sleek websites and mobile apps to integrating AI
+            solutions, we help brands turn ideas into powerful digital
+            experiences that connect, engage, and scale.</p>
+          <a href="#contact-us">
+            <button class="btn">Let's Talk</button>
+          </a>
+        </div>
+  
+        <div class="pict">
+          <img src="./assets/images/hand.png" alt="hero" />
+        </div>
+      </section>
+      
+      <!-- 3. Who we are section -->
+      <section class="who-we-are" id="about">
+          <h2>Who We Are</h2>
+          <p>We're a group of tech students trained in
+          <span>building real-world digital products</span>. From coding to
+          design, we <span>craft modern solutions for modern problems</span>
+          </p>
+      </section>
+
+      <!-- 4. What we do section -->
+      <section class="what-we-do" id="service">
+        <div class="text">
+          <h2>What We Do</h2>
+          <p>We offer simple tech solutions to help your ideas grow.</p>
+        </div>
+        <div class="card-grid">
+          <!-- card 1 -->
+          <div class="card">
+            <img src="./assets/images/Website.png" alt="Website" />
+            <h3>Web Development</h3>
+            <p>Modern websites using HTML, CSS, JavaScript, and frameworks.</p>
+          </div>
+          <!-- card 2 -->
+          <div class="card">
+            <img src="./assets/images/Mobile.png" alt="Mobile" />
+            <h3>App Development</h3>
+            <p>Mobile and desktop apps tailored for your needs</p>
+          </div>
+          <!-- card 3 -->
+          <div class="card">
+            <img src="./assets/images/AI.png" alt="AI" />
+            <h3>AI Integration</h3>
+            <p>Smart solutions using AI-powered tools and automation.</p>
+          </div>
+          <!-- card 4 -->
+          <div class="card">
+            <img src="./assets/images/Paint.png" alt="paint" />
+            <h3>UI/UX Design</h3>
+            <p>Clean and functional designs for better user experience.</p>
+          </div>
+          <!-- card 5  -->
+          <div class="card">
+            <img src="./assets/images/Landing Page.png" alt="Landing page" />
+            <h3>Landing Page Design</h3>
+            <p>High-converting landing pages for your product or business.</p>
+          </div>
+          <!-- card 6 -->
+          <div class="card">
+            <img src="./assets/images/CMS.png" alt="CMS" />
+            <h3>CMS Integration</h3>
+            <p>Easy-to-manage websites with WordPress or Webflow.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Our work section -->
+      <section class="our-work" id="our-work">
+        <div class="text">
+          <h2>Our Work</h2>
+          <p>See what we've built with passion and purpose</p>
+        </div>
+        
+        <div class="portfolio-card">
+          <!-- card 1 -->
+          <div class="Portfolio">
+            <img
+              src="./assets/images/Portfolio Card 1.png"
+              alt="portofoliocard1"
+            />
+          </div>
+          <!-- card 2 -->
+          <div class="Portfolio">
+            <img
+              src="./assets/images/Portfolio Card 2.png"
+              alt="portofoliocard2"
+            />
+          </div>
+          <!-- card 3 -->
+          <div class="Portfolio">
+            <img
+              src="./assets/images/Portfolio Card 3.png"
+              alt="portofoliocard3"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Meet the team section -->
+      <section class="meet-the-team" id="team">
+        <div class="text">
+          <h2>Meet the Team</h2>
+          <p>A group of future-ready tech makers.</p>
+        </div>
+        
+        <!-- picture -->
+        <div class="members">
+          <img src="./assets/images/Team Member Card1.png" alt="Member Card1" />
+          <img src="./assets/images/Team Member Card2.png" alt="Member Card2" />
+          <img src="./assets/images/Team Member Card3.png" alt="Member Card3" />
+          <img src="./assets/images/Team Member Card4.png" alt="Member Card4" />
+        </div>
+      </section>
+
+      <!-- 7. Let's collaborate section -->
+      <section class="let-us-colaborate" id="contact-us">
+        <div class="text">
+          <h2>Let's Collaborate</h2>
+          <p>Need a tech team? We're ready to help</p>
+        </div>
+
+        <!-- Form -->
+        <form class="form">
+          <div class="name">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name" />
+          </div>
+          <div class="email">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Enter your email" />
+          </div>
+          <div class="message">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Enter your message"></textarea>
+          </div>
+          <button class="btn">Send</button>
+        </form>
+      </section>
+
+      <!-- 8. Footer section -->
+      <footer>
+        &copy; 2026 WPH-Challenge 2 By <a href="https://github.com/mesetiyadi">M Eko Setiyadi</a>
+      </footer>
+
+      <!-- Add your JavaScript here -->
+      <script src="./script.js"></script>
+
+    </div>
   </body>
 </html>
