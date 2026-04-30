@@ -445,24 +445,20 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* --- MEDIA QUERY --- */
+/* ============================================================
+   MEDIA QUERIES
+   ============================================================ */
+/* --- 1. HEADER & NAVIGATION --- */
 @media (min-width: 768px) {
-  /* 1. Header */
   header {
     padding: 24px 70px;
     display: flex;
     justify-content: space-between;
     background-color: black;
   }
-
-  .hamburger-button {
+  .hamburger-button, .bg-header {
     display: none;
   }
-
-  .bg-header {
-    display: none;
-  }
-
   .menu {
     width: auto;
     align-items: center;
@@ -471,13 +467,11 @@ footer a:hover {
     transition: none;
     transform: translateY(0);
   }
-
   .menu .nav-links {
     display: flex;
     flex-direction: row;
     gap: 20px;
   }
-
   .btn-container {
     padding: 0;
     max-width: 160px;
@@ -485,61 +479,103 @@ footer a:hover {
     position: static;
     transition: none;
   }
+}
 
-  /* 2. Hero section */
+@media (min-width: 1440px) {
+  header {
+    padding: 24px 140px;
+  }
+}
+
+/* --- 2. HERO SECTION --- */
+@media (min-width: 768px) {
   .hero {
     position: relative;
     flex-direction: row;
     padding: 40px 70px 70px;
   }
-
-  .hero .text {
-    max-width: 400px;
-  }
-
-  .hero .btn {
-    max-width: 300px;
-  }
-
+  .hero .text { max-width: 400px; }
+  .hero .btn { max-width: 300px; }
   .hero .pict {
     position: relative;
-    margin-top: 0;
     max-width: 330px;
     top: 17px;
     right: 50px;
+    margin-top: 0;
   }
+}
 
-  /* 3. Who we are section */
-  .who-we-are {
-    padding: 40px 70px;
-  }
+@media (min-width: 1024px) {
+  .hero { padding: 100px 70px; }
+  .hero .text { max-width: 500px; }
+  .hero .text .btn { margin-top: 20px; }
+  .hero .pict { max-width: 360px; top: 0px; right: 50px; }
+}
 
-  /* 4. What we do section */
-  .what-we-do {
-    padding: 40px 70px;
-  }
+@media (min-width: 1440px) {
+  .hero { padding: 234px 140px 170px; }
+  .hero .text { max-width: 650px; }
+  .hero .text h2 { font-size: 56px; }
+  .hero .text p { font-size: 20px; line-height: 34px; }
+  .hero .text .btn { margin-top: 48px; }
+  .hero .pict { max-width: 600px; top: -40px; right: 140px; }
+}
 
-  /* 5. Our work section */
-  .our-work {
-    padding: 40px 70px;
-  }
+/* --- 3. WHO WE ARE (ABOUT) --- */
+@media (min-width: 768px) {
+  .who-we-are { padding: 40px 70px; }
+}
 
-  /* 6. Meet the Team Section */
-  .meet-the-team {
-    padding: 40px 70px;
-  }
+@media (min-width: 1440px) {
+  .who-we-are { gap: 32px; padding: 40px 140px; }
+  .who-we-are h2 { font-size: 40px; }
+  .who-we-are p { font-size: 32px; line-height: 56px; }
+}
 
+/* --- 4. WHAT WE DO (SERVICES) --- */
+@media (min-width: 768px) {
+  .what-we-do { padding: 40px 70px; }
+}
+
+@media (min-width: 1440px) {
+  .what-we-do { padding: 40px 140px; gap: 64px; }
+  .what-we-do .text h2 { font-size: 40px; margin-bottom: 16px; }
+  .what-we-do .text p { font-size: 20px; }
+  .card-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --- 5. OUR WORK (PORTFOLIO) --- */
+@media (min-width: 768px) {
+  .our-work { padding: 40px 70px; }
+}
+
+@media (min-width: 1440px) {
+  .our-work { padding: 40px 140px; gap: 64px; }
+  .our-work .text h2 { font-size: 40px; margin-bottom: 16px; }
+  .our-work .text p { font-size: 20px; }
+  .portfolio-card { flex-direction: row; gap: 20px; }
+}
+
+/* --- 6. MEET THE TEAM --- */
+@media (min-width: 768px) {
+  .meet-the-team { padding: 40px 70px; }
   .members {
     grid-template-columns: repeat(2, auto);
     justify-content: center;
     gap: 100px;
   }
+}
 
-  /* 7. Let’s Collaborate Section */
-  .let-us-colaborate {
-    padding: 40px 70px;
-  }
+@media (min-width: 1440px) {
+  .meet-the-team { padding: 40px 140px; gap: 64px; }
+  .meet-the-team .text h2 { font-size: 40px; margin-bottom: 16px; }
+  .meet-the-team .text p { font-size: 20px; }
+  .members { grid-template-columns: repeat(4, auto); gap: 56px; }
+}
 
+/* --- 7. LET'S COLLABORATE (CONTACT) --- */
+@media (min-width: 768px) {
+  .let-us-colaborate { padding: 40px 70px; }
   .form {
     width: 100%;
     max-width: 592px;
@@ -547,156 +583,16 @@ footer a:hover {
   }
 }
 
-@media (min-width: 1024px) {
-  /* 2. Hero section */
-  .hero {
-    padding: 100px 70px;
-  }
-
-  .hero .text {
-    max-width: 500px;
-  }
-
-  .hero .text .btn {
-    margin-top: 20px;
-  }
-
-  .hero .pict {
-    max-width: 360px;
-    top: 0px;
-    right: 50px;
-  }
+@media (min-width: 1440px) {
+  .let-us-colaborate { padding: 40px 140px; gap: 64px; }
+  .let-us-colaborate .text h2 { font-size: 40px; margin-bottom: 16px; }
+  .let-us-colaborate .text p { font-size: 20px; }
 }
 
+/* --- GLOBAL CONTAINER (1440px+) --- */
 @media (min-width: 1440px) {
   .container {
     max-width: 1400px;
     margin: auto;
-  }
-
-  /* 1. Header */
-  header {
-    padding: 24px 140px;
-  }
-
-  .hamburger-button {
-    display: none;
-  }
-
-  /* 2. Hero */
-  .hero {
-    padding: 234px 140px 170px;
-  }
-
-  .hero .text {
-    max-width: 650px;
-  }
-
-  .hero .text h2 {
-    font-size: 56px;
-  }
-
-  .hero .text p {
-    font-size: 20px;
-    line-height: 34px;
-  }
-
-  .hero .text .btn {
-    margin-top: 48px;
-  }
-
-  .hero .pict {
-    max-width: 600px;
-    top: -40px;
-    right: 140px;
-  }
-
-  /* 3. Who we are section */
-  .who-we-are {
-    gap: 32px;
-    padding: 40px 140px;
-  }
-
-  .who-we-are h2 {
-    font-size: 40px;
-  }
-
-  .who-we-are p {
-    font-size: 32px;
-    line-height: 56px;
-  }
-
-  /* 4. What we do section */
-  .what-we-do {
-    padding: 40px 140px;
-    gap: 64px;
-  }
-
-  .what-we-do .text h2 {
-    font-size: 40px;
-    margin-bottom: 16px;
-  }
-
-  .what-we-do .text p {
-    font-size: 20px;
-  }
-
-  .card-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* 5. Our work section */
-  .our-work {
-    padding: 40px 140px;
-    gap: 64px;
-  }
-
-  .our-work .text h2 {
-    font-size: 40px;
-    margin-bottom: 16px;
-  }
-
-  .our-work .text p {
-    font-size: 20px;
-  }
-
-  .portfolio-card {
-    flex-direction: row;
-    gap: 20px;
-  }
-
-  /* 6. Meet the Team Section */
-  .meet-the-team {
-    padding: 40px 140px;
-    gap: 64px;
-  }
-
-  .meet-the-team .text h2 {
-    font-size: 40px;
-    margin-bottom: 16px;
-  }
-
-  .meet-the-team .text p {
-    font-size: 20px;
-  }
-
-  .members {
-    grid-template-columns: repeat(4, auto);
-    gap: 56px;
-  }
-
-  /* 7. Let’s Collaborate Section */
-  .let-us-colaborate {
-    padding: 40px 140px;
-    gap: 64px;
-  }
-
-  .let-us-colaborate .text h2 {
-    font-size: 40px;
-    margin-bottom: 16px;
-  }
-
-  .let-us-colaborate .text p {
-    font-size: 20px;
   }
 }
