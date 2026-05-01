@@ -446,7 +446,7 @@ footer a:hover {
 }
 
 /* ============================================================
-   MEDIA QUERIES
+   MEDIA QUERIES FOR RESPONSIVE DESIGN
    ============================================================ */
 /* --- 1. HEADER & NAVIGATION --- */
 @media (min-width: 768px) {
@@ -482,43 +482,73 @@ footer a:hover {
 }
 
 @media (min-width: 1440px) {
-  header {
-    padding: 24px 140px;
-  }
+  header {padding: 24px 140px;}
 }
 
 /* --- 2. HERO SECTION --- */
 @media (min-width: 768px) {
   .hero {
-    position: relative;
+    position: sticky;
+    display: flex;
     flex-direction: row;
-    padding: 40px 70px 70px;
+    justify-content: space-between;
+    align-items: center; /* Memaksa tangan nempel ke dasar section */
+    padding: 0px 70px 0px; /* Padding bawah 0 agar tangan nempel lantai */
+    min-height: 500px;
+    overflow: hidden;
   }
-  .hero .text { max-width: 400px; }
-  .hero .btn { max-width: 300px; }
+
+  .hero .text {
+    max-width: 70%; /* Memberikan ruang lebih lebar agar teks tidak terpotong */
+    padding-bottom: 80px; /* Memberi jarak teks dari lantai agar tidak nempel */
+    z-index: 2;
+  }
+
+  .hero .text h2 {
+    font-size: 48px;
+    line-height: 1.2;
+    white-space: nowrap; /* Memaksa kata "Future." naik ke atas */
+  }
+
+  .hero .text p {
+    color: #717680;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: left;
+    max-width: 450px;
+    margin-right: auto;
+  }
+
+  .hero .text a {
+    display: inline-block; 
+    width: 100%;
+    max-width: 500px;
+  }
+
   .hero .pict {
     position: relative;
-    max-width: 330px;
-    top: 17px;
-    right: 50px;
-    margin-top: 0;
+    max-width: 450px;
+    margin-bottom: 0; /* memastikan tidak ada margin bawah */
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
   }
 }
 
-@media (min-width: 1024px) {
-  .hero { padding: 100px 70px; }
-  .hero .text { max-width: 500px; }
-  .hero .text .btn { margin-top: 20px; }
-  .hero .pict { max-width: 360px; top: 0px; right: 50px; }
+/* Penyesuaian untuk Monitor Lebih Besar */
+@media (min-width: 1200px) {
+  .hero {padding: 0px 100px 0px;}
+  .hero .text h2 {font-size: 46px;}
+  .hero .pict {max-width: 450px;}
 }
 
 @media (min-width: 1440px) {
-  .hero { padding: 234px 140px 170px; }
-  .hero .text { max-width: 650px; }
-  .hero .text h2 { font-size: 56px; }
-  .hero .text p { font-size: 20px; line-height: 34px; }
-  .hero .text .btn { margin-top: 48px; }
-  .hero .pict { max-width: 600px; top: -40px; right: 140px; }
+  .hero {padding: 0px 140px 0px;}
+  .hero .text {padding-bottom: 120px;}
+  .hero .text p {font-size: 20px; line-height: 34px; max-width: 550px;}
+  .hero .text a {max-width: 450px;}
+  .hero .pict {max-width: 450px;}
 }
 
 /* --- 3. WHO WE ARE (ABOUT) --- */
