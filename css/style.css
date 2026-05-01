@@ -437,7 +437,7 @@ footer {
 }
 
 footer a {
-  color: #f59e0b;
+  color: #ff9500;
   cursor: pointer;
 }
 
@@ -478,6 +478,10 @@ footer a:hover {
     transform: translateY(0);
     position: static;
     transition: none;
+  }
+  .btn-contact-us {
+    width: 100%;
+    min-width: 160px;
   }
 }
 
