@@ -104,12 +104,18 @@ header {
 
 .btn-container {
   background-color: black;
-  padding: 10px 16px;
+  padding: 0;
   width: 100%;
+  display: block;
   z-index: 10;
   top: 220px;
   left: 0;
   transform: translateY(-500%);
+}
+
+.btn-container a {
+  display: block;
+  width: 100%;
 }
 
 .menu.open, 
